@@ -1,0 +1,34 @@
+{
+    "name": "sen-labs/oauth-authentik",
+    "description": "Native Authentik OIDC integration for Flarum 2.0",
+    "keywords": ["flarum", "oauth", "authentik", "oidc", "openid"],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gregor Rosenauer",
+            "email": "gregor.rosenauer@gmail.com",
+            "homepage": "https://sen-labs.org"
+        }
+    ],
+    "require": {
+        "flarum/core": "^2.0",
+        "fof/oauth": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SenLabs\\OAuth\\Authentik\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Authentik OAuth",
+            "category": "auth",
+            "icon": {
+                "name": "fas fa-shield-halved",
+                "backgroundColor": "#fd4b2d",
+                "color": "#fff"
+            }
+        }
+    }
+}
