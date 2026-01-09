@@ -6,7 +6,7 @@ fof-oauth:
     settings:
       providers:
         authentik:
-          description: "Connect your Flarum instance to Authentik for SSO."
+          description: "Authentik OAuth provider for Flarum."
           client_id_label: Client ID
           client_secret_label: Client Secret
           base_url_label: External Base URL (public server address)
