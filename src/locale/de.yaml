@@ -1,0 +1,14 @@
+fof-oauth:
+  lib:
+    providers:
+      authentik: Authentik
+  admin:
+    settings:
+      providers:
+        authentik:
+          description: "Authentik OAuth Provider für Flarum."
+          client_id_label: Client ID
+          client_secret_label: Client Secret
+          base_url_label: Externe Basis URL (von außen erreichbare Server Adresse)
+          internal_url_label: Interne Basis URL (optional, z.b. http://192.168.0.x:9000)
+          
