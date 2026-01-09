@@ -1,4 +1,6 @@
 fof-oauth:
+  forum:
+    log_in_with_authentik_button: "Mit Authentik anmelden"
   lib:
     providers:
       authentik: Authentik
