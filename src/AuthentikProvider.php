@@ -20,7 +20,8 @@ class AuthentikProvider extends Provider
             'client_id'     => ['required'],
             'client_secret' => ['required'],
             'base_url'      => ['required'],
-            'internal_url'  => [],
+            'internal_url'  => ['type' => 'text'],
+            'redirect_path' => ['type' => 'text'],
         ];
     }
 
@@ -36,7 +37,7 @@ class AuthentikProvider extends Provider
             'urlAuthorize'            => "$externalUrl/application/o/authorize/",
             'urlAccessToken'          => "$internalUrl/application/o/token/",
             'urlResourceOwnerDetails' => "$internalUrl/application/o/userinfo/",
-            'scopes'                  => 'openid profile email',
+            'scopes'                  => ['openid', 'profile', 'email', 'user_metadata'],
             'responseResourceOwnerId' => 'sub'
         ]);
     }
@@ -54,10 +55,11 @@ class AuthentikProvider extends Provider
             ->provide('username', $username)
             ->setPayload($data);
 
-        // Redirect logic: Drops the user on the Tags page after signup
-        // Note: This works best if the user is completing registration for the first time
-        $registration->setPayload(array_merge($registration->getPayload(), [
-            'redirectTo' => $url->to('forum')->path('tags')
+        // We redirect to the settings value if provided, else default to /tags
+        $targetPath = $this->getSetting('redirect_path') ?: 'tags';
+
+        $registration->setPayload(array_merge($data, [
+            'redirectTo' => $url->to('forum')->path($targetPath)
         ]));
-}
+    }
 }

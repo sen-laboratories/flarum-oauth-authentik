@@ -13,4 +13,5 @@ fof-oauth:
           client_secret_label: Client Secret
           base_url_label: Externe Basis URL (von außen erreichbare Server Adresse)
           internal_url_label: Interne Basis URL (optional, z.b. http://192.168.0.x:9000)
-          
+          redirect_path_label: Pfad für Weiterleitung (optional, standardmäig /tags)
+          redirect_path_help: "Pfad zur Weiterleitung des Benutzers nach erfolreicher Authentifizierung."
