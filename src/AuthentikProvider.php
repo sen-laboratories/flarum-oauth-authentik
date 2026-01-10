@@ -53,5 +53,11 @@ class AuthentikProvider extends Provider
             ->provideTrustedEmail($data['email'])
             ->provide('username', $username)
             ->setPayload($data);
-    }
+
+        // Redirect logic: Drops the user on the Tags page after signup
+        // Note: This works best if the user is completing registration for the first time
+        $registration->setPayload(array_merge($registration->getPayload(), [
+            'redirectTo' => $url->to('forum')->path('tags')
+        ]));
+}
 }
