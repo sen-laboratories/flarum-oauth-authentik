@@ -20,8 +20,8 @@ class AuthentikProvider extends Provider
             'client_id'     => ['required'],
             'client_secret' => ['required'],
             'base_url'      => ['required'],
-            'internal_url'  => ['type' => 'text'],
-            'redirect_path' => ['type' => 'text'],
+            'internal_url'  => [],  // optional
+            'redirect_path' => [],  // optional
         ];
     }
 
@@ -37,7 +37,7 @@ class AuthentikProvider extends Provider
             'urlAuthorize'            => "$externalUrl/application/o/authorize/",
             'urlAccessToken'          => "$internalUrl/application/o/token/",
             'urlResourceOwnerDetails' => "$internalUrl/application/o/userinfo/",
-            'scopes'                  => ['openid', 'profile', 'email', 'user_metadata'],
+            'scopes'                  => ['openid', 'profile', 'email', 'user-metadata'],
             'responseResourceOwnerId' => 'sub'
         ]);
     }

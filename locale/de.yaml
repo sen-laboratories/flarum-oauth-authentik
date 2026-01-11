@@ -1,6 +1,7 @@
 fof-oauth:
   forum:
-    log_in_with_authentik_button: "Mit Authentik anmelden"
+    log_in:
+      with_authentik_button: Anmelden mit Authentik
   lib:
     providers:
       authentik: Authentik
@@ -8,10 +9,10 @@ fof-oauth:
     settings:
       providers:
         authentik:
-          description: "Authentik OAuth Provider für Flarum."
+          description: Authentik OAuth Provider für Flarum.
           client_id_label: Client ID
           client_secret_label: Client Secret
           base_url_label: Externe Basis URL (von außen erreichbare Server Adresse)
           internal_url_label: Interne Basis URL (optional, z.b. http://192.168.0.x:9000)
           redirect_path_label: Pfad für Weiterleitung (optional, standardmäig /tags)
-          redirect_path_help: "Pfad zur Weiterleitung des Benutzers nach erfolreicher Authentifizierung."
+          redirect_path_help: Pfad zur Weiterleitung des Benutzers nach erfolreicher Authentifizierung.
