@@ -37,7 +37,9 @@ class AuthentikProvider extends Provider
             'urlAuthorize'            => "$externalUrl/application/o/authorize/",
             'urlAccessToken'          => "$internalUrl/application/o/token/",
             'urlResourceOwnerDetails' => "$internalUrl/application/o/userinfo/",
-            'scopes'                  => ['openid', 'profile', 'email', 'user-metadata'],
+            // This tells the underlying Guzzle client to ignore SSL/Cert issues
+            'verify'                  => false,
+            'scopes'                  => 'openid profile email user-metadata',
             'responseResourceOwnerId' => 'sub'
         ]);
     }
