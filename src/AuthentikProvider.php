@@ -56,14 +56,15 @@ class AuthentikProvider extends Provider
 
         $registration
             ->provideTrustedEmail($data['email'])
-            ->provide('username', $username)
-            ->setPayload($data);
+            ->provide('username', $username);
 
         // We redirect to the settings value if provided, else default to /tags
         $targetPath = $this->getSetting('redirect_path') ?: 'tags';
+        $payload = array_merge($data, [
+           'redirectTo' => $url->to('forum')->path($targetPath),
+           'source'     => 'authentik'
+        ]);
 
-        $registration->setPayload(array_merge($data, [
-            'redirectTo' => $url->to('forum')->path($targetPath)
-        ]));
+        $registration->setPayload($payload);
     }
 }
