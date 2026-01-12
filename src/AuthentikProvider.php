@@ -10,16 +10,6 @@ use League\OAuth2\Client\Provider\GenericProvider;
 
 class AuthentikProvider extends Provider
 {
-    /**
-     * @var UrlGenerator
-     */
-    protected $url;
-
-    public function __construct(UrlGenerator $url)
-    {
-        $this->url = $url;
-    }
-
     public function name(): string { return 'authentik'; }
     public function icon(): string { return 'fas fa-shield-halved'; }
     public function type(): string { return 'openid'; }
@@ -57,6 +47,7 @@ class AuthentikProvider extends Provider
 
     public function suggestions(Registration $registration, $user, string $token): void
     {
+        $url = resolve(UrlGenerator::class);
         $data = $user->toArray();
 
         // Sanitize username for Flarum (dots to dashes)
